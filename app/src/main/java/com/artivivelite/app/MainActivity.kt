@@ -132,7 +132,7 @@ private fun ScannerScreen(projects: List<Project>, onBack: () -> Unit) {
                 } else {
                     val bitmap = remember(project.id) { BitmapFactory.decodeFile(project.contentPath) }
                     if (bitmap != null) AugmentedImageNode(augmentedImage = image, applyImageScale = true) {
-                        ImageNode(materialLoader = this.materialLoader, bitmap = bitmap, size = Size(x = 1f, y = 1f))
+                        ImageNode(materialLoader = materialLoader, bitmap = bitmap, size = Size(x = 1f, y = 1f))
                     }
                 }
             }
