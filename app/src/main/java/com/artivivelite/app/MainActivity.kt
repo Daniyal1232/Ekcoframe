@@ -24,6 +24,7 @@ import io.github.sceneview.ar.ARSceneView
 import io.github.sceneview.ar.node.AugmentedImageNode
 import io.github.sceneview.math.Size
 import io.github.sceneview.node.VideoNode
+import io.github.sceneview.node.ImageNode
 import java.util.UUID
 
 class MainActivity : ComponentActivity() {
@@ -131,7 +132,7 @@ private fun ScannerScreen(projects: List<Project>, onBack: () -> Unit) {
                 } else {
                     val bitmap = remember(project.id) { BitmapFactory.decodeFile(project.contentPath) }
                     if (bitmap != null) AugmentedImageNode(augmentedImage = image, applyImageScale = true) {
-                        io.github.sceneview.node.ImageNode(bitmap = bitmap, size = Size(x = 1f, y = 1f))
+                        ImageNode(materialLoader = this.materialLoader, bitmap = bitmap, size = Size(x = 1f, y = 1f))
                     }
                 }
             }
